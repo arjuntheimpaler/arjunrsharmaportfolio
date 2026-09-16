@@ -1,0 +1,80 @@
+---
+import { NAV_LINKS, SITE_TITLE } from '../consts';
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="border-b border-[var(--color-line)]">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+    <a href="/" class="font-serif text-lg font-semibold tracking-tight text-[var(--color-ink)]">
+      {SITE_TITLE}
+    </a>
+
+    <nav class="hidden items-center gap-8 text-sm sm:flex">
+      {NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'transition-colors hover:text-[var(--color-clay)]',
+            isActive(link.href)
+              ? 'text-[var(--color-clay)] font-medium'
+              : 'text-[var(--color-moss)]',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="/contact"
+      class="hidden rounded-full bg-[var(--color-ink)] px-4 py-2 text-sm font-medium text-[var(--color-paper)] transition-colors hover:bg-[var(--color-moss)] sm:inline-block"
+    >
+      Start a conversation
+    </a>
+
+    <button
+      id="menu-toggle"
+      class="sm:hidden"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="hidden flex-col gap-1 border-t border-[var(--color-line)] px-6 py-4 sm:hidden">
+    {NAV_LINKS.map((link) => (
+      <a
+        href={link.href}
+        class="rounded px-2 py-2 text-sm text-[var(--color-moss)] hover:bg-[var(--color-paper-dim)]"
+      >
+        {link.label}
+      </a>
+    ))}
+    <a href="/contact" class="mt-2 rounded-full bg-[var(--color-ink)] px-4 py-2 text-center text-sm font-medium text-[var(--color-paper)]">
+      Start a conversation
+    </a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isHidden = menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    menu?.classList.toggle('flex');
+    toggle.setAttribute('aria-expanded', String(!!isHidden));
+  });
+</script>

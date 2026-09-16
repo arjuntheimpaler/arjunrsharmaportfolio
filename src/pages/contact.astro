@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT_EMAIL } from '../consts';
+
+const title = 'Contact';
+const description = 'Get in touch with Arjun R Sharma about SEO and organic growth work.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-3xl px-6 py-20">
+    <p class="text-sm font-medium uppercase tracking-widest text-[var(--color-clay)]">Contact</p>
+    <h1 class="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+      Let's talk about your growth problem.
+    </h1>
+    <p class="mt-6 text-lg leading-relaxed text-[var(--color-moss)]">
+      The fastest way to reach me is email. I typically reply within 2–3 business days.
+    </p>
+
+    <div class="mt-10 rounded-2xl border border-[var(--color-line)] bg-[var(--color-paper-dim)] p-8">
+      <p class="text-sm font-medium text-[var(--color-moss-light)]">Email</p>
+      <a
+        href={`mailto:${CONTACT_EMAIL}`}
+        class="mt-1 block font-serif text-2xl font-semibold text-[var(--color-ink)] hover:text-[var(--color-clay)]"
+      >
+        {CONTACT_EMAIL}
+      </a>
+      <a
+        href={`mailto:${CONTACT_EMAIL}?subject=Let's%20talk%20about%20SEO%20%26%20growth`}
+        class="mt-6 inline-block rounded-full bg-[var(--color-ink)] px-6 py-3 text-sm font-medium text-[var(--color-paper)] transition-colors hover:bg-[var(--color-moss)]"
+      >
+        Compose an email
+      </a>
+    </div>
+
+    <div class="mt-10">
+      <h2 class="font-serif text-xl font-semibold">To make the first reply useful, include:</h2>
+      <ul class="mt-4 space-y-2 text-[var(--color-moss)]">
+        <li class="flex gap-3">
+          <span class="text-[var(--color-clay)]">—</span>
+          <span>Your site (and current monthly organic traffic, if you know it)</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-[var(--color-clay)]">—</span>
+          <span>What's not moving, or what you're trying to grow</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-[var(--color-clay)]">—</span>
+          <span>Any timeline or budget constraints worth knowing upfront</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

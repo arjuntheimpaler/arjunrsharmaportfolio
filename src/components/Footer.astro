@@ -1,0 +1,42 @@
+---
+import { CONTACT_EMAIL, SITE_TITLE, SOCIAL_LINKS } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[var(--color-line)] bg-[var(--color-paper-dim)]">
+  <div class="mx-auto max-w-5xl px-6 py-12">
+    <div class="grid gap-8 sm:grid-cols-3">
+      <div>
+        <p class="font-serif text-lg font-semibold">{SITE_TITLE}</p>
+        <p class="mt-2 text-sm text-[var(--color-moss)]">
+          SEO &amp; organic growth consultant.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-sm font-medium text-[var(--color-ink)]">Navigate</p>
+        <ul class="mt-2 space-y-1 text-sm text-[var(--color-moss)]">
+          <li><a href="/about" class="hover:text-[var(--color-clay)]">About</a></li>
+          <li><a href="/services" class="hover:text-[var(--color-clay)]">Services</a></li>
+          <li><a href="/blog" class="hover:text-[var(--color-clay)]">Writing</a></li>
+          <li><a href="/contact" class="hover:text-[var(--color-clay)]">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-sm font-medium text-[var(--color-ink)]">Elsewhere</p>
+        <ul class="mt-2 space-y-1 text-sm text-[var(--color-moss)]">
+          {SOCIAL_LINKS.map((link) => (
+            <li><a href={link.href} class="hover:text-[var(--color-clay)]">{link.label}</a></li>
+          ))}
+          <li><a href="/rss.xml" class="hover:text-[var(--color-clay)]">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-2 border-t border-[var(--color-line)] pt-6 text-xs text-[var(--color-moss-light)] sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {year} {SITE_TITLE}. All rights reserved.</p>
+      <p><a href={`mailto:${CONTACT_EMAIL}`} class="hover:text-[var(--color-clay)]">{CONTACT_EMAIL}</a></p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arjunrsharma.com/sitemap-index.xml

@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+
+  --color-ink: #12130f;
+  --color-paper: #faf8f3;
+  --color-paper-dim: #f1ede2;
+  --color-moss: #2f3d2c;
+  --color-moss-light: #4a5d43;
+  --color-clay: #b5541f;
+  --color-clay-light: #d97a3f;
+  --color-line: #e3ddce;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-clay);
+    color: var(--color-paper);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-prose {
+    max-width: 68ch;
+  }
+}
+
+/* Blog post typography */
+.prose-post {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  line-height: 1.75;
+}
+.prose-post h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.prose-post h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.prose-post p {
+  margin-bottom: 1.25rem;
+}
+.prose-post ul, .prose-post ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+.prose-post ul { list-style: disc; }
+.prose-post ol { list-style: decimal; }
+.prose-post li { margin-bottom: 0.4rem; }
+.prose-post a {
+  color: var(--color-clay);
+  text-decoration: underline;
+}
+.prose-post blockquote {
+  border-left: 3px solid var(--color-clay);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--color-moss-light);
+  margin: 1.5rem 0;
+}
+.prose-post code {
+  background: var(--color-paper-dim);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.prose-post pre {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+}
+.prose-post pre code {
+  background: transparent;
+  padding: 0;
+}
+.prose-post img {
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+.prose-post hr {
+  border-color: var(--color-line);
+  margin: 2.5rem 0;
+}
