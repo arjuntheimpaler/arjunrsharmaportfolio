@@ -17,3 +17,6 @@ export const SOCIAL_LINKS = [
   { label: 'Email', href: `mailto:${CONTACT_EMAIL}` },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arjunrsharma' },
 ];
+
+// Set to a real GA4 ID like 'G-XXXXXXXXXX' to enable Google Analytics. Leave empty to disable.
+export const GA_MEASUREMENT_ID = '';

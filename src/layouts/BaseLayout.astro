@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import { GA_MEASUREMENT_ID } from '../consts';
 import '../styles/global.css';
 
 interface Props {
@@ -23,6 +24,7 @@ const { title, description, image, type, publishedTime, modifiedTime } = Astro.p
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="google-site-verification" content="vnRU9CmbHXqQPViZrJZesFhpOHPWnsXDblxAXGySPe8" />
     <SEO
       title={title}
       description={description}
@@ -37,6 +39,17 @@ const { title, description, image, type, publishedTime, modifiedTime } = Astro.p
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    {GA_MEASUREMENT_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+        <script define:vars={{ GA_MEASUREMENT_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GA_MEASUREMENT_ID);
+        </script>
+      </>
+    )}
     <slot name="head" />
   </head>
   <body class="flex min-h-screen flex-col">
