@@ -4,14 +4,14 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
 
-  --color-ink: #12130f;
-  --color-paper: #faf8f3;
-  --color-paper-dim: #f1ede2;
-  --color-moss: #2f3d2c;
-  --color-moss-light: #4a5d43;
-  --color-clay: #b5541f;
-  --color-clay-light: #d97a3f;
-  --color-line: #e3ddce;
+  --color-ink: #560417;
+  --color-paper: #fbfbf0;
+  --color-paper-dim: #eaeec0;
+  --color-moss: #56621f;
+  --color-moss-light: #78864a;
+  --color-clay: #d30c7b;
+  --color-clay-light: #e8479e;
+  --color-line: #dde1ac;
 }
 
 @layer base {
