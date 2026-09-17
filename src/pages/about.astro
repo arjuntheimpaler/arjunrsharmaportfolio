@@ -1,17 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { EXPERIENCE, DIFFERENTIATORS, INDUSTRIES } from '../data/profile';
+import { INDUSTRIES } from '../data/profile';
 
 const title = 'About';
 const description =
-  "Arjun R Sharma's background in agency-side SEO and growth marketing across FMCG, BFSI, travel, and B2B — and how his independent consulting practice works.";
+  "Arjun R Sharma's background in organic growth marketing across FMCG, BFSI, travel, and B2B, and what this site is about.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="mx-auto max-w-3xl px-6 pt-20 pb-12">
+  <section class="mx-auto max-w-3xl px-6 pt-20 pb-20">
     <p class="text-sm font-medium uppercase tracking-widest text-[var(--color-clay)]">About</p>
     <h1 class="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
-      Four years of agency-side SEO, now running independently.
+      Organic growth marketer, based on what actually moved the needle.
     </h1>
     <div class="mt-8 space-y-5 text-lg leading-relaxed text-[var(--color-moss)]">
       <p>
@@ -20,62 +20,31 @@ const description =
         channel performance against hard revenue numbers, not just rankings.
       </p>
       <p>
-        I currently lead growth marketing at Jump Content (Dimerse) while running an
-        independent consulting practice alongside it. I keep that practice deliberately
-        small: a limited number of clients at a time, with direct access to me rather
-        than being routed through account managers.
+        I currently lead growth marketing at Jump Content (Dimerse). This site
+        is where I keep a record of the brands I've worked with, and write
+        about the parts of SEO that are actually changing right now — Local
+        SEO, generative engine optimization (GEO), answer engine optimization
+        (AEO), and organic growth strategy more broadly.
       </p>
       <p>
-        I don't offer paid media, and I screen every engagement against my current
-        employer relationships to avoid conflicts. If that's not the right fit for
-        what you need, I'll tell you early.
+        No fluff, no recycled "10 SEO tips" posts — just what I'm seeing
+        work (and not work) in practice, and the projects behind it.
       </p>
     </div>
-  </section>
 
-  <!-- Differentiators -->
-  <section class="border-y border-[var(--color-line)] bg-[var(--color-paper-dim)]">
-    <div class="mx-auto max-w-5xl px-6 py-16">
-      <h2 class="font-serif text-2xl font-semibold">How this practice is different</h2>
-      <div class="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {DIFFERENTIATORS.map((item) => (
-          <div>
-            <h3 class="font-medium text-[var(--color-ink)]">{item.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-[var(--color-moss)]">{item.description}</p>
-          </div>
-        ))}
-      </div>
+    <div class="mt-12">
+      <a
+        href="/work"
+        class="inline-block rounded-full bg-[var(--color-ink)] px-6 py-3 text-sm font-medium text-[var(--color-paper)] transition-colors hover:bg-[var(--color-moss)]"
+      >
+        See the work
+      </a>
+      <a
+        href="/blog"
+        class="ml-4 inline-block rounded-full border border-[var(--color-line)] px-6 py-3 text-sm font-medium text-[var(--color-ink)] transition-colors hover:border-[var(--color-clay)] hover:text-[var(--color-clay)]"
+      >
+        Read the blog
+      </a>
     </div>
-  </section>
-
-  <!-- Experience timeline -->
-  <section class="mx-auto max-w-3xl px-6 py-20">
-    <h2 class="font-serif text-2xl font-semibold">Experience</h2>
-    <ol class="mt-10 space-y-10 border-l border-[var(--color-line)] pl-8">
-      {EXPERIENCE.map((job) => (
-        <li class="relative">
-          <span class="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-[var(--color-clay)]"></span>
-          <p class="text-sm font-medium uppercase tracking-widest text-[var(--color-moss-light)]">
-            {job.period}
-          </p>
-          <h3 class="mt-1 font-serif text-xl font-semibold text-[var(--color-ink)]">
-            {job.role} · {job.org}
-          </h3>
-          <p class="mt-2 text-[var(--color-moss)] leading-relaxed">{job.description}</p>
-          <p class="mt-3 text-sm text-[var(--color-moss-light)]">
-            Clients: {job.clients.join(', ')}
-          </p>
-        </li>
-      ))}
-    </ol>
-  </section>
-
-  <section class="mx-auto max-w-3xl px-6 pb-24 text-center">
-    <a
-      href="/contact"
-      class="inline-block rounded-full bg-[var(--color-ink)] px-8 py-3 text-sm font-medium text-[var(--color-paper)] transition-colors hover:bg-[var(--color-moss)]"
-    >
-      Start a conversation
-    </a>
   </section>
 </BaseLayout>

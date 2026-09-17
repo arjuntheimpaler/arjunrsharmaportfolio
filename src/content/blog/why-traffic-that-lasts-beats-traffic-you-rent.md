@@ -42,5 +42,5 @@ sized against a realistic timeline, not a quarterly OKR. If you need traffic
 next week, SEO isn't the right lever on its own. If you're building something
 you plan to still own in three years, it usually is.
 
-*If you want a second opinion on whether your current traffic mix is built to
-last, [get in touch](/contact).*
+That's the lens I use for pretty much everything else on this blog: is this
+building something that lasts, or just renting attention for a quarter.

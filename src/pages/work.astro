@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { EXPERIENCE, BRANDS } from '../data/profile';
+
+const title = 'Work';
+const description =
+  "A record of Arjun R Sharma's organic growth marketing work — agencies, roles, and the brands worked with along the way.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-3xl px-6 pt-20 pb-12">
+    <p class="text-sm font-medium uppercase tracking-widest text-[var(--color-clay)]">Work</p>
+    <h1 class="mt-4 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+      Where I've worked, and on what.
+    </h1>
+  </section>
+
+  <!-- Experience timeline -->
+  <section class="mx-auto max-w-3xl px-6 pb-16">
+    <ol class="space-y-10 border-l border-[var(--color-line)] pl-8">
+      {EXPERIENCE.map((job) => (
+        <li class="relative">
+          <span class="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-[var(--color-clay)]"></span>
+          <p class="text-sm font-medium uppercase tracking-widest text-[var(--color-moss-light)]">
+            {job.period}
+          </p>
+          <h2 class="mt-1 font-serif text-xl font-semibold text-[var(--color-ink)]">
+            {job.role} · {job.org}
+          </h2>
+          <p class="mt-2 text-[var(--color-moss)] leading-relaxed">{job.description}</p>
+          <p class="mt-3 text-sm text-[var(--color-moss-light)]">
+            Clients: {job.clients.join(', ')}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Brands -->
+  <section class="border-y border-[var(--color-line)] bg-[var(--color-paper-dim)]">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <h2 class="text-center font-serif text-2xl font-semibold">Brands I've worked with</h2>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+        {BRANDS.map((brand) => (
+          <span class="font-serif text-lg text-[var(--color-moss)]">{brand}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

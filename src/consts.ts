@@ -1,15 +1,15 @@
 export const SITE_TITLE = 'Arjun R Sharma';
 export const SITE_TAGLINE =
-  'I help brands earn traffic that lasts, not traffic they have to keep paying for.';
+  'Organic growth marketer. Writing about SEO, Local SEO, GEO, and AEO.';
 export const SITE_DESCRIPTION =
-  'Arjun R Sharma is an independent SEO and organic growth consultant working with FMCG, BFSI, travel, and B2B brands on technical SEO, content strategy, and generative-engine visibility.';
+  'Arjun R Sharma is an organic growth marketer working across FMCG, BFSI, travel, and B2B. Portfolio and writing on SEO, Local SEO, generative engine optimization (GEO), and answer engine optimization (AEO).';
 export const SITE_URL = 'https://arjunrsharma.com';
 export const CONTACT_EMAIL = 'arjunrsharma31@gmail.com';
 
 export const NAV_LINKS = [
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/blog', label: 'Writing' },
+  { href: '/work', label: 'Work' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 

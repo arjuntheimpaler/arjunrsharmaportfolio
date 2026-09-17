@@ -2,23 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { SITE_TAGLINE, SITE_DESCRIPTION, SITE_TITLE, SITE_URL, CONTACT_EMAIL } from '../consts';
-import { SERVICES, BRANDS, INDUSTRIES } from '../data/profile';
+import { FOCUS_AREAS, BRANDS, INDUSTRIES } from '../data/profile';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-const featuredServices = SERVICES.slice(0, 6);
+const featuredAreas = FOCUS_AREAS.slice(0, 6);
 
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: SITE_TITLE,
   url: SITE_URL,
-  jobTitle: 'SEO & Organic Growth Consultant',
+  jobTitle: 'Organic Growth Marketer',
   email: CONTACT_EMAIL,
   description: SITE_DESCRIPTION,
-  knowsAbout: ['SEO', 'Technical SEO', 'Organic Growth', 'Generative Engine Optimization'],
+  knowsAbout: ['SEO', 'Local SEO', 'Generative Engine Optimization', 'Answer Engine Optimization', 'Organic Growth'],
 };
 ---
 
@@ -29,28 +29,29 @@ const personJsonLd = {
   <!-- Hero -->
   <section class="mx-auto max-w-5xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
     <p class="text-sm font-medium uppercase tracking-widest text-[var(--color-clay)]">
-      SEO &amp; Organic Growth Consultant
+      Organic Growth Marketer
     </p>
     <h1 class="mt-5 max-w-3xl text-balance font-serif text-4xl font-semibold leading-tight text-[var(--color-ink)] sm:text-5xl">
       {SITE_TAGLINE}
     </h1>
     <p class="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-moss)]">
       Four years of agency-side SEO and growth marketing across
-      {INDUSTRIES.join(', ')}. I run a deliberately small independent practice
-      so clients get direct access — not an account manager.
+      {INDUSTRIES.join(', ')}. This is where I keep a record of the work and
+      write about what's actually changing in search — Local SEO, GEO, AEO,
+      and organic growth in general.
     </p>
     <div class="mt-8 flex flex-wrap gap-4">
       <a
-        href="/contact"
+        href="/blog"
         class="rounded-full bg-[var(--color-ink)] px-6 py-3 text-sm font-medium text-[var(--color-paper)] transition-colors hover:bg-[var(--color-moss)]"
       >
-        Start a conversation
+        Read the blog
       </a>
       <a
-        href="/about"
+        href="/work"
         class="rounded-full border border-[var(--color-line)] px-6 py-3 text-sm font-medium text-[var(--color-ink)] transition-colors hover:border-[var(--color-clay)] hover:text-[var(--color-clay)]"
       >
-        See where I've worked
+        See the work
       </a>
     </div>
   </section>
@@ -69,33 +70,25 @@ const personJsonLd = {
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Focus areas -->
   <section class="mx-auto max-w-5xl px-6 py-20">
-    <div class="flex items-end justify-between gap-6">
-      <h2 class="font-serif text-3xl font-semibold">What I do</h2>
-      <a href="/services" class="hidden text-sm font-medium text-[var(--color-clay)] hover:underline sm:inline">
-        All services →
-      </a>
-    </div>
+    <h2 class="font-serif text-3xl font-semibold">What I write and work on</h2>
     <div class="mt-10 grid gap-8 sm:grid-cols-2">
-      {featuredServices.map((service) => (
+      {featuredAreas.map((area) => (
         <div class="border-b border-[var(--color-line)] pb-8">
-          <h3 class="text-lg font-semibold text-[var(--color-ink)]">{service.title}</h3>
-          <p class="mt-2 text-[var(--color-moss)] leading-relaxed">{service.description}</p>
+          <h3 class="text-lg font-semibold text-[var(--color-ink)]">{area.title}</h3>
+          <p class="mt-2 text-[var(--color-moss)] leading-relaxed">{area.description}</p>
         </div>
       ))}
     </div>
-    <a href="/services" class="mt-8 inline-block text-sm font-medium text-[var(--color-clay)] hover:underline sm:hidden">
-      All services →
-    </a>
   </section>
 
-  <!-- Writing -->
+  <!-- Blog -->
   {posts.length > 0 && (
     <section class="border-t border-[var(--color-line)] bg-[var(--color-paper-dim)]">
       <div class="mx-auto max-w-5xl px-6 py-20">
         <div class="flex items-end justify-between gap-6">
-          <h2 class="font-serif text-3xl font-semibold">Recent writing</h2>
+          <h2 class="font-serif text-3xl font-semibold">Recent posts</h2>
           <a href="/blog" class="hidden text-sm font-medium text-[var(--color-clay)] hover:underline sm:inline">
             All posts →
           </a>
@@ -122,9 +115,9 @@ const personJsonLd = {
   <!-- CTA -->
   <section class="mx-auto max-w-5xl px-6 py-20 text-center">
     <h2 class="mx-auto max-w-xl text-balance font-serif text-3xl font-semibold">
-      Have a growth problem that content and ads alone haven't solved?
+      Want to talk shop, or just say hi?
     </h2>
-    <p class="mt-4 text-[var(--color-moss)]">I usually reply within 2–3 business days.</p>
+    <p class="mt-4 text-[var(--color-moss)]">I'm easiest to reach by email.</p>
     <a
       href="/contact"
       class="mt-8 inline-block rounded-full bg-[var(--color-clay)] px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--color-clay-light)]"
