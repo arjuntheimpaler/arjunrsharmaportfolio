@@ -19,4 +19,4 @@ export const SOCIAL_LINKS = [
 ];
 
 // Set to a real GA4 ID like 'G-XXXXXXXXXX' to enable Google Analytics. Leave empty to disable.
-export const GA_MEASUREMENT_ID = '';
+export const GA_MEASUREMENT_ID = 'G-T5S0P0TPFB';
